@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require("./models/User")
+const Spot = require('./models/Spot');
 
 // Port
 const PORT = process.env.PORT || 5000;
@@ -29,16 +29,47 @@ mongoose
     console.log(err);
   });
 
-
-
-// middlewares 
+// middlewares
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
 // GET
-app.get('/', (req, res) => {});
+app.get('/initialMarkers', (req, res) => {
+  Spot.find()
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+app.get('/details/:id', (req, res) => {
+  Spot.findById(req.params.id)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get('/', (req, res) => {
+  // const spot = new Spot({
+  //   name: 'Bolzen Platz',
+  //   lat: 53.59732287609145,
+  //   lng: 9.996299835998528,
+  // });
+  // spot
+  //   .save()
+  //   .then((result) => {
+  //     console.log('saved to database');
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+});
 
 // POST
 app.post('/', (req, res) => {});
