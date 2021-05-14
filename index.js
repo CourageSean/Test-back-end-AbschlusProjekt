@@ -55,21 +55,21 @@ app.get('/details/:id', (req, res) => {
     });
 });
 
-app.get('/', (req, res) => {
-  // const spot = new Spot({
-  //   name: 'Bolzen Platz',
-  //   lat: 53.59732287609145,
-  //   lng: 9.996299835998528,
-  // });
-  // spot
-  //   .save()
-  //   .then((result) => {
-  //     console.log('saved to database');
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-});
+// app.get('/', (req, res) => {
+//   const spot = new Spot({
+//     name: 'Nahe Erholungsgebiet',
+//     lat: 50.92089720514569,
+//     lng: 6.114956327075176,
+//   });
+//   spot
+//     .save()
+//     .then((result) => {
+//       console.log('saved to database');
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 // POST
 app.post('/', (req, res) => {});
